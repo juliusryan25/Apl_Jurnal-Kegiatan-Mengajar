@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
 
-class TbJurnal extends Model
+
+class TbPenugasan extends Model
 {
     use HasFactory;
-    protected $table = "tb_jurnals";
+    protected $table = "tb_penugasans";
 
     public function scopeCurrentUser($query)
     {
@@ -18,5 +19,4 @@ class TbJurnal extends Model
             return $query->where('id_user', Auth::user()->id);
         }
     }
-
 }
