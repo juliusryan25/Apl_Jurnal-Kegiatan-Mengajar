@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrintPdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
-
+Route::get('/admin/print/a_j',  [PrintPdf::class, 'c_all_jurnal_pdf']);
+Route::get('/print/s_j/{id}',  [PrintPdf::class, 'c_one_jurnal_pdf']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+
